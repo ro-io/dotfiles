@@ -9,8 +9,9 @@ endif
 :set number
 :set relativenumber
 :set colorcolumn=81
+:match colorcolumn "\%>80v.\+" "highlights text that goes past column 80.
 :set nocompatible
-:set updatetime=100
+:set updatetime=150
 :syntax on
 
 "Plugins
@@ -36,8 +37,14 @@ let g:lightline = {
 "Setting vim's colorscheme
 :colo seoul256
 
-"Set the colorcolumn's color to light-grey (mmv).
-:highlight colorcolumn ctermbg=7
+"Set the colorcolumn's color to black (mmv).
+":highlight colorcolumn ctermbg=black
+
+if exists('&signcolumn')  "Vim 7.4.2201 and up
+	set signcolumn=yes
+else
+	let g:gitgutter_sign_column_always = 1
+endif
 
 "Set the combination `jj` to escape INSERT mode. 
 :inoremap jj <ESC>
