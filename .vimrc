@@ -12,6 +12,9 @@ endif
 :match colorcolumn "\%>80v.\+" "highlights text that goes past column 80.
 :set nocompatible
 :set updatetime=150
+:set expandtab "Inserts spaces instead of tabs
+":set tabstop=8
+":set shiftwidth=8
 :syntax on
 
 "Plugins
@@ -23,8 +26,20 @@ Plug 'junegunn/seoul256.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 
+"Auto-completion for java
+Plug 'artur-shaik/vim-javacomplete2'
+"Syntax coloring for .kt	Might need to :set filepath=kotlin
+Plug 'udalov/kotlin-vim'
+"Finally, this is for android.
+Plug 'hsanson/vim-android'
+
 "Initialize plugin system
 call plug#end()
+
+"Required according to the javacomplete2 README
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+
 
 "lightline.vim settings
 :set laststatus=2 "Required for lightline to show
