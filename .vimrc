@@ -16,7 +16,8 @@ endif
 ":set tabstop=8
 ":set shiftwidth=8
 :syntax on
-
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+                "^ disables auto comment formating
 "Plugins
 call plug#begin('~/.vim/plugged')
 
