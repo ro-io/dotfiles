@@ -30,17 +30,23 @@ Plug 'itchyny/lightline.vim'
 "Initialize plugin system
 call plug#end()
 
+if &term =~ '256color'
+          " disable Background Color Erase (BCE) so that color schemes
+          " render properly when inside 256-color GNU screen.
+        set t_ut=
+endif
 
 "lightline.vim settings
 :set laststatus=2 "Required for lightline to show
 :set noshowmode "Hides the original INSERT/VISUAL indicator
 "Setting lightline.vim's colorscheme
 let g:lightline = {
-	\ 'colorscheme': 'seoul256',
+	\ 'colorscheme': 'default',
 	\ }
 
 "Setting vim's colorscheme
-:colo seoul256
+":colo seoul256
+:colo default
 
 "Set the colorcolumn's color to black (mmv).
 ":highlight colorcolumn ctermbg=black
@@ -50,6 +56,9 @@ if exists('&signcolumn')  "Vim 7.4.2201 and up
 else
 	let g:gitgutter_sign_column_always = 1
 endif
+
+"Changes the SignColumn color to match the line numbers.
+:highlight clear SignColumn
 
 "Set the combination `jj` to escape INSERT mode. 
 :inoremap jj <ESC>
