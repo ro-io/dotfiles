@@ -27,6 +27,9 @@ Plug 'junegunn/seoul256.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 
+"Syntax highlighting for Wren lang
+Plug 'lluchs/vim-wren'
+
 "Initialize plugin system
 call plug#end()
 
